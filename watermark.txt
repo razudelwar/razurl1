@@ -1,0 +1,72 @@
+/**
+ * Advanced Anti-Piracy Watermark: Two rows, tiny text, 
+ * Dynamic color shifting and random movement.
+ */
+add_action('wp_footer', function() {
+    if ( is_user_logged_in() ) {
+        $current_user = wp_get_current_user();
+        
+        // Data Injection: Get Name and Mobile (assuming mobile is in user_meta 'billing_phone' or 'mobile')
+        $name = esc_html($current_user->display_name);
+        $mobile = get_user_meta($current_user->ID, 'whatsapp_no', true) ?: 'No Mobile Saved';
+        
+        ?>
+        <style>
+            #secure-watermark {
+                position: fixed;
+                z-index: 9999999;
+                pointer-events: none; /* Allows user to click video buttons underneath */
+                user-select: none;
+                line-height: 1.2;
+                font-weight: bold;
+                font-family: sans-serif;
+                font-size: 10px; /* Small text size as requested */
+                opacity: 0.4;
+                transition: all 1.5s ease-in-out; /* Smooth movement */
+            }
+            .wm-row { display: block; }
+        </style>
+
+        <div id="secure-watermark">
+            <span class="wm-row"><?php echo $name; ?></span>
+            <span class="wm-row"><?php echo $mobile; ?></span>
+        </div>
+
+        <script>
+            (function() {
+                const wm = document.getElementById('secure-watermark');
+                
+                function moveWatermark() {
+                    // 1. Random Position (Keep away from extreme edges)
+                    const top = Math.floor(Math.random() * 85) + 5;
+                    const left = Math.floor(Math.random() * 85) + 5;
+                    
+                    // 2. Dynamic Color Injection (Changes hex to confuse editors)
+                    const colors = ['#FF0000', '#00FF00', '#0000FF', '#FFFFFF', '#000000', '#FFFF00', '#FF00FF'];
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    wm.style.top = top + '%';
+                    wm.style.left = left + '%';
+                    wm.style.color = randomColor;
+                    
+                    // 3. Random Rotation (Makes it even harder to predict)
+                    const rotation = Math.floor(Math.random() * 40) - 20;
+                    wm.style.transform = `rotate(${rotation}deg)`;
+                }
+
+                // Initial move and then every 6 seconds
+                moveWatermark();
+                setInterval(moveWatermark, 6000);
+
+                // Anti-Tamper: If hidden or deleted, refresh page
+                const observer = new MutationObserver(() => {
+                    if (!document.getElementById('secure-watermark') || wm.style.display === 'none') {
+                        location.reload();
+                    }
+                });
+                observer.observe(document.body, { childList: true, attributes: true, subtree: true });
+            })();
+        </script>
+        <?php
+    }
+});
