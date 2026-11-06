@@ -76,11 +76,11 @@ from telethon.tl.types import InputFile, InputFileBig
 # ----------------------------------------------------------------------
 API_ID        = int(os.environ.get("API_ID", "17074961"))
 API_HASH      = os.environ.get("API_HASH", "f0077a7fb095171c22b0172dc9856b9a")
-BOT_TOKEN     = os.environ.get("BOT_TOKEN", "5325147855:AAHB0rLVG6QNLbA1d2l57vM3ygG4gaU65Rk")
-OWNER_ID      = int(os.environ.get("OWNER_ID", "1081431445"))   # only this user may use the bot
+BOT_TOKEN     = os.environ.get("BOT_TOKEN", "5274544651:AAGgqFD90Ra13RJ8RsS8RFNkmPD32FSvodQ")
+OWNER_ID      = int(os.environ.get("OWNER_ID", "1081431445"))   # only this user may use the bot 5274544651:AAGgqFD90Ra13RJ8RsS8RFNkmPD32FSvodQ
 
 # ---- speed tuning -----------------------------------------------------
-MAX_DOWNLOADS   = int(os.environ.get("MAX_DOWNLOADS", "20"))     # files downloading at once
+MAX_DOWNLOADS   = int(os.environ.get("MAX_DOWNLOADS", "20"))     # files downloading at once 5325147855:AAHB0rLVG6QNLbA1d2l57vM3ygG4gaU65Rk
 MAX_UPLOADS     = int(os.environ.get("MAX_UPLOADS", "10"))       # files uploading at once
 UPLOAD_SESSIONS = int(os.environ.get("UPLOAD_SESSIONS", "100"))   # parallel Telegram connections
 MAX_SEGMENTS    = int(os.environ.get("MAX_SEGMENTS", "100"))      # parallel Range connections per file
