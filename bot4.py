@@ -76,7 +76,7 @@ from telethon.tl.types import InputFile, InputFileBig
 # ----------------------------------------------------------------------
 API_ID        = int(os.environ.get("API_ID", "17074961"))
 API_HASH      = os.environ.get("API_HASH", "f0077a7fb095171c22b0172dc9856b9a")
-BOT_TOKEN     = os.environ.get("BOT_TOKEN", "5312918400:AAGY9m55htSq8YLX-3QkR46FDXELiCDITZk")
+BOT_TOKEN     = os.environ.get("BOT_TOKEN", "5233820061:AAEA-OmykpmaJ9ggGoUIeyesmfo6loErp5w")
 OWNER_ID      = int(os.environ.get("OWNER_ID", "1081431445"))   # only this user may use the bot
 
 # ---- speed tuning -----------------------------------------------------
