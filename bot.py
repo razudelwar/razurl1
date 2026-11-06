@@ -72,11 +72,11 @@ from telethon.tl.functions.upload import SaveFilePartRequest, SaveBigFilePartReq
 from telethon.tl.types import InputFile, InputFileBig
 
 # ----------------------------------------------------------------------
-# CONFIG  (override with environment variables if you want)
+# CONFIG  (override with environment variables if you want) 5140148969:AAHpcX9nvAm2Z25PvO-g5Q4xFQv7_38FPf
 # ----------------------------------------------------------------------
 API_ID        = int(os.environ.get("API_ID", "17074961"))
 API_HASH      = os.environ.get("API_HASH", "f0077a7fb095171c22b0172dc9856b9a")
-BOT_TOKEN     = os.environ.get("BOT_TOKEN", "5140148969:AAHpcX9nvAm2Z25PvO-g5Q4xFQv7_38FPfk")
+BOT_TOKEN     = os.environ.get("BOT_TOKEN", "5352691863:AAFkEKfig0mw_0VMMeadRQkWUd_-fK4ay_o")
 OWNER_ID      = int(os.environ.get("OWNER_ID", "1081431445"))   # only this user may use the bot
 
 # ---- speed tuning -----------------------------------------------------
